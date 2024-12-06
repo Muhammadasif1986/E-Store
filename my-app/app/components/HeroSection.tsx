@@ -36,7 +36,7 @@ export default function HeroSection() {
       </div>
 </div>  
 <div className="mt-12">
-      <Image src="/HeroImage.png" alt="hero.png" width={400} height={344} />
+      <Image src="/heroImage.png" alt="HeroImage" width={400} height={344} />
 </div>
 </div>
     </main>
