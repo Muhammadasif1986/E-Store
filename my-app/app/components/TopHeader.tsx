@@ -7,11 +7,11 @@ const poppins = Poppins(
 export default function TopHeader() {
   return (
     <main className={poppins.className}>
-      <div className="flex items-center w-full h-12 bg-black">
-             <div className="flex justify-between items-center w-[859px] h-6 mt-3 ml-[445px] gap-[231px] text-[#fafafa]">
-<div className="w-[550px] h-6 gap-2 flex">
-<div className="w-[474px] h-5">
-<p className="font-normal text-sm leading-[21px]">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
+      <div className="flex items-center min-w-max h-12 bg-black font-[Poppins]">
+             <div className="flex justify-between items-center ml-10 gap-9 lg:w-[859px] h-6 mt-3 lg:ml-[445px] lg:gap-[231px] text-[#fafafa]">
+<div className="w-auto lg:w-[600px] h-6 gap-2 flex">
+<div className="w-auto lg:w-[500px] h-5">
+<p className="font-normal text-sm">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
 </div>
 <div>
 <p className="font-semibold text-sm text-center underline">ShopNow</p>
