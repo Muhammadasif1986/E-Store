@@ -30,96 +30,106 @@ export default function TodayCards() {
   ]
   return (
     <main>
-<div className="w-full lg:w-[1308px] h-[493px]  ml-32 text-base font-[Poppins] mt-16 ">
-<div className="flex items-end w-10/12 lg:w-[1170px h-[103px] gap-[470px]">
-<div className="flex justify-between items-end w-6/12 ">
-       <div>
-       <div className= "flex justify-between items-center w-24 h-10">
-        <div className="w-5 h-10 rounded bg-[#db4444]"></div>
-        <p className="text-[#db4444]">Today's</p>
-      </div>
-      <div className="text-3xl font-semibold mt-6">
-          Flash Sales
-      </div>
-      </div>
-<div className="flex gap-3">
-  <span>
-    <p className="text-[12px]">Days</p>
-    <p className="text-2xl font-semibold">03<span className="text-[#db4444] ml-3 font-normal">:</span></p>
-  </span>
-  <span>
-    <p className="text-[12px]">Hours</p>
-    <p className="text-2xl font-semibold">23<span className="text-[#db4444] ml-3 font-normal">:</span></p>
-  </span>
-  <span>
-    <p className="text-[12px]">Minutes</p>
-    <p className="text-2xl font-semibold">19<span className="text-[#db4444] ml-3 font-normal">:</span></p>
-  </span>
-  <span>
-    <p className="text-[12px]">Seconds</p>
-    <p className="text-2xl font-semibold">56</p>
-  </span>
-</div>
+      <div className="w-full px-4 lg:w-[1308px] mx-auto text-base font-[Poppins] mt-8 md:mt-16">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
+          {/* Flash Sales Title */}
+          <div>
+            <div className="flex items-center w-24 h-10">
+              <div className="w-5 h-10 rounded bg-[#db4444]"></div>
+              <p className="text-[#db4444] ml-2">Today&apos;s</p>
+            </div>
+            <div className="text-2xl md:text-3xl font-semibold mt-4">
+              Flash Sales
+            </div>
+          </div>
 
-     </div>
-     <div className="w-1/12 flex justify-end gap-2">
-    <div className="flex justify-center items-center w-11 h-11 bg-[#f5f5f5] rounded-full ">
-      <Image src="/vectorLeft.png" alt="vectorLeft" width={20} height={20} />
-    </div>
-    <div className="flex justify-center items-center w-11 h-11 bg-[#f5f5f5] rounded-full">
-      <Image src="/vectorRight.png" alt="vectorRight" width={20} height={20} />
-    </div>
-     </div>
-     </div>
-     <Carousel>
- <CarouselContent>
-    
-      {TodayProducts.map((item:Cart)=>{
-        return(
-          <main className="flex justify-between items-center w-full lg:w-[1308px] h-[350px] gap-9 mt-10">
- 
-          <CarouselItem> 
-        <div key={item.id} className="w-4/12 lg:w-[270px] h-[350px]">
-        <div className="w-full h-[250px] rounded bg-[#f5f5f5]">
-  <div className="flex justify-between">
-  <div className="w-14 h-7 rounded pt-2 px-3 bg-[#db4444] text-xs text-[#fafafa]">-40%</div>
-  <div className="w-[34px] h-[76px]">
-    <div className="w-[34px] h-[34px]">
-  <div className="w-6 h-6 mt-1 ml-1 bg-[#f5f5f5]"><Heart /></div>
-  <div className="w-6 h-6 mt-3 ml-1"><Eye /></div>
-    </div>
-  </div>
-  </div>
-  <div className="w-48 h-44 ml-12 -mt-9">
-    <Image src={item.image} alt="games" width={172} height={152} className="ml-2" />
-  </div>
-  <div className="w-[270px]">
-    <button className="w-[270px] bg-black rounded-b-lg h-10 text-white font-semibold">Add Cart</button>
-  </div>
-   </div>
-  <div className="mt-4">
-    <p className="font-semibold mb-2 text-sm">{item.ProductName}</p>
-    <span className="flex gap-4 text-red-700 mb-2 text-sm">{item.price} <p><del className="text-black">{item.LastPrice}</del></p></span>
-    <div className="flex w-full justify-start items-center text-xs text-orange-400">
-      <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
-      <p className="text-black ml-2 text-sm">(88)</p></div>
-  </div>
+          {/* Timer */}
+          <div className="flex gap-2 md:gap-3">
+            {["Days", "Hours", "Minutes", "Seconds"].map((label, idx) => (
+              <span key={idx} className="flex flex-col items-center text-center">
+                <p className="text-xs md:text-sm">{label}</p>
+                <p className="text-lg md:text-2xl font-semibold">
+                  03<span className="text-[#db4444] ml-1 md:ml-3 font-normal">:</span>
+                </p>
+              </span>
+            ))}
+          </div>
+
+          {/* Navigation Buttons */}
+          <div className="hidden md:flex gap-2">
+            <div className="flex justify-center items-center w-10 h-10 bg-[#f5f5f5] rounded-full">
+              <Image src="/vectorLeft.png" alt="Left" width={20} height={20} />
+            </div>
+            <div className="flex justify-center items-center w-10 h-10 bg-[#f5f5f5] rounded-full">
+              <Image src="/vectorRight.png" alt="Right" width={20} height={20} />
+            </div>
+          </div>
         </div>
-        
-        </CarouselItem>
-</main>
-        )
-})
-      }
-     
-      
-        </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
-    
-   
-</div>
-  </main>
+
+        {/* Carousel */}
+        <Carousel className="mt-6">
+        <CarouselContent>
+  {TodayProducts.map((item: Cart, index) => (
+    // Set each carousel item to take half the width for two items per slide
+    <CarouselItem key={index} className="basis-1/2 p-2">
+      <div className="w-full h-[350px] p-4 bg-[#f5f5f5] rounded-lg">
+        {/* Discount and Icons */}
+        <div className="flex justify-between">
+          <div className="w-14 h-7 rounded bg-[#db4444] text-xs text-white text-center pt-1">
+            -40%
+          </div>
+          <div className="flex flex-col items-center gap-2">
+            <div className="w-8 h-8 bg-white flex items-center justify-center rounded-full shadow-md">
+              <Heart size={18} />
+            </div>
+            <div className="w-8 h-8 bg-white flex items-center justify-center rounded-full shadow-md">
+              <Eye size={18} />
+            </div>
+          </div>
+        </div>
+
+        {/* Product Image */}
+        <div className="flex justify-center mt-4">
+          <Image
+            src={item.image}
+            alt="Product"
+            width={140}
+            height={140}
+            className="object-contain"
+          />
+        </div>
+
+        {/* Add to Cart Button */}
+        <button className="w-full bg-black rounded-b-lg h-10 text-white font-semibold mt-4">
+          Add Cart
+        </button>
+
+        {/* Product Info */}
+        <div className="mt-4">
+          <p className="font-semibold mb-1 text-sm md:text-base">
+            {item.ProductName}
+          </p>
+          <div className="flex gap-2 text-red-700 text-sm md:text-base">
+            {item.price}
+            <p className="text-gray-500 line-through">{item.LastPrice}</p>
+          </div>
+          <div className="flex items-center text-xs text-orange-400 mt-1">
+            {[...Array(5)].map((_, i) => (
+              <FaStar key={i} />
+            ))}
+            <p className="text-black ml-2 text-sm">(88)</p>
+          </div>
+        </div>
+      </div>
+    </CarouselItem>
+  ))}
+</CarouselContent>
+
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+      </div>
+    </main>
   )
 }
